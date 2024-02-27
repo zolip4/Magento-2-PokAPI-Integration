@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <tab id="onion" translate="label" sortOrder="50">
+            <label>Onion</label>
+        </tab>
+        <section id="onion" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Poke APi</label>
+            <tab>onion</tab>
+            <resource>Onion_PokeApi::anion_pokeapi</resource>
+            <group id="general" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="base_api_url" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Base Api Url</label>
+                    <comment>Use `https://pokeapi.co/api/v2/` for default Api Url</comment>
+                </field>
+            </group>
+            <group id="download_import" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Download and Import Pokémon's</label>
+                <field id="download_import_button" translate="label comment" type="button" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Onion\PokeApi\Block\Adminhtml\Settings\DownloadNImport</frontend_model>
+                </field>
+                <field id="limit" translate="label comment" default="0" sortOrder="0" type="text" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Pokemon Limit Import</label>
+                    <validate>required-entry validate-digits validate-not-negative-number validate-digits-range digits-range-0-1000</validate>
+                    <comment>
+                        <![CDATA[Select the number of Pokémon to import (from 0 to 1000). Put 0 for choose first 20 Pokémon<br><strong class="colorRed">Warning!</strong> You must save after change this field.]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

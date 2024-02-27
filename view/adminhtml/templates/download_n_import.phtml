@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var \Onion\PokeApi\Block\Adminhtml\Settings\DownloadNImport $block
+ */
+
+$completed = $block->getImportedClass();
+?>
+<div class="import-container" data-bind="scope: 'import'">
+    <p class="import-message" data-bind="css: { completed : isImportDone },text: message"></p>
+
+    <?php /*if ($completed === 'completed'): */?><!--
+        <p class="import-message-complete"><?php /*= __('Data imported successfully') */?></p>
+    <?php /*else: */?>
+        <p class="import-message-error"><?php /*= __('Data Import Required') */?></p>
+    --><?php /*endif; */?>
+
+
+    <button class="action-default"
+            type="button"
+            data-bind="
+                click: initImportData.bind($data),
+                attr: {title: $t('Import Data')},
+                i18n: 'Import Data'">
+    </button>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "import": {
+                        "component": "Onion_PokeApi/js/import",
+                        "importAction": <?= /* @noEscape */ $block->getConfig(); ?>,
+                        "isDataImport" : <?= /* @noEscape */ $completed ?>
+                }
+            }
+        }
+    }
+}
+</script>

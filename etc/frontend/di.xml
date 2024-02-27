@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product-model-plugin"
+                type="Onion\PokeApi\Plugin\Model\Product\ProductPlugin"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\ImageFactory">
+        <plugin name="image-factory-plugin"
+                type="Onion\PokeApi\Plugin\Block\Product\ImageFactoryPlugin"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin name="product-gallery-plugin"
+                type="Onion\PokeApi\Plugin\Block\Product\View\GalleryPlugin"/>
+    </type>
+    <type name="Magento\Catalog\Helper\Output">
+        <plugin name="catalog-output-plugin"
+                type="Onion\PokeApi\Plugin\Helper\OutputPlugin"/>
+    </type>
+</config>
