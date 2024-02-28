@@ -6,6 +6,7 @@
   "description": "Module that add PokeAPi integration",
   "type": "magento2-module",
   "version": "1.0.0",
+  "minimum-stability": "stable",
   "license": [
     "proprietary"
   ],
