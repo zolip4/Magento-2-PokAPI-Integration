@@ -8,6 +8,7 @@ use Magento\Catalog\Block\Product\ImageBuilder;
 use Magento\Catalog\Helper\ImageFactory;
 use Magento\Framework\Serialize\SerializerInterface;
 use Onion\PokeApi\Model\Api\PokeApiService;
+use Onion\PokeApi\Helper\Data;
 
 abstract class AbstractPlugin
 {
@@ -19,13 +20,16 @@ abstract class AbstractPlugin
         protected readonly PokeApiService $apiService,
         protected readonly PokemonRepository $pokemonRepository,
         protected readonly PokemonDetails $pokemonDetails,
-        protected readonly SerializerInterface $serializer
+        protected readonly SerializerInterface $serializer,
+        protected readonly Data $helper
     ) {
     }
 
     public function getPokemonDetails($product)
     {
-        if ($pokemonId = $this->hasPokemonName($product)) {
+        $pokemonId = $this->hasPokemonName($product);
+
+        if ($pokemonId && $this->helper->isModuleEnable()) {
             $pokemonEntity = $this->pokemonRepository->getById($pokemonId);
 
             if ($pokemonEntity) {

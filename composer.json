@@ -1,5 +1,5 @@
 {
-  "name": "onion/poke-api",
+  "name": "zolip4/poke-api",
   "require": {
       "php": "~8.1.0||~8.2.0"
   },

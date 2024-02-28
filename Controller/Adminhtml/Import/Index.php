@@ -11,6 +11,9 @@ use Onion\PokeApi\Helper\Data as Helper;
 use Onion\PokeApi\Model\Api\PokeApiService;
 use Onion\PokeApi\Model\ImportManager;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 class Index extends Action
 {
     public function __construct(

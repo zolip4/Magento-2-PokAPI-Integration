@@ -17,6 +17,7 @@ class Data extends AbstractHelper
     public const API_REQUEST_ENDPOINT = 'pokemon/';
     protected const BASE_API_URL_PATH = 'onion/general/base_api_url';
     protected const POKEMON_IMPORT_LIMIT_PATH = 'onion/download_import/limit';
+    protected const ONION_MODULE_ENABLE_PATH = 'onion/general/enable';
 
     public function __construct(
         protected readonly Context $context,
@@ -37,5 +38,10 @@ class Data extends AbstractHelper
     public function getPokemonLimit()
     {
         return $this->scopeConfig->getValue(self::POKEMON_IMPORT_LIMIT_PATH);
+    }
+
+    public function isModuleEnable()
+    {
+        return $this->scopeConfig->getValue(self::ONION_MODULE_ENABLE_PATH);
     }
 }

@@ -26,6 +26,8 @@ class DownloadNImport extends Field
 
     /**
      * @throws LocalizedException
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function _getElementHtml(AbstractElement $element): string
     {

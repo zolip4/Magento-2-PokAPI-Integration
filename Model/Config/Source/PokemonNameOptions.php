@@ -21,7 +21,7 @@ class PokemonNameOptions extends AbstractSource
 
         $this->_options[] = ['label' => '---Choose a pokemon name', 'value' => 0];
 
-        foreach ($pokemonNameList->getItems() as $key => $pokemon) {
+        foreach ($pokemonNameList->getItems() as $pokemon) {
             $this->_options[] = ['label' => $pokemon->getName(), 'value' => $pokemon->getId()];
         }
 

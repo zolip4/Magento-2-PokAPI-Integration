@@ -8,6 +8,9 @@ use Onion\PokeApi\Model\AbstractPlugin;
 
 class OutputPlugin extends AbstractPlugin
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function beforeProductAttribute($subject, $product, $attributeHtml, $attributeName)
     {
         if ($attributeName == 'short_description' && $response = $this->getPokemonDetails($product)) {

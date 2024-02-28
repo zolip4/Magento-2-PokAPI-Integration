@@ -10,6 +10,9 @@ class ImageFactoryPlugin extends AbstractPlugin
 {
     protected const ONION_POKEMON_NAME = 'onion_pokemon_name';
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function afterCreate($subject, $result, $product, $imageId, $attributes)
     {
         if ($response = $this->getPokemonDetails($product)) {
