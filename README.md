@@ -24,6 +24,10 @@ Allows you to anonymize product data on the front end.
 * In Magento root folder run commands:
 
 ```
+composer require zolip4/poke-api:dev-main
+```
+
+```
 $ php bin/magento setup:upgrade
 ```
 
